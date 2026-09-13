@@ -1,0 +1,14 @@
+services:
+  oracle-db:
+    image: gvenzl/oracle-free:23-slim
+    container_name: clinicadent-oracle
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=123456
+      - APP_USER=CLINICADENT_APP
+      - APP_USER_PASSWORD=123456
+    volumes:
+      - oracle_data:/container_entrypoint_initdb.d/location
+volumes:
+  oracle_data:
